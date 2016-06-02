@@ -1,20 +1,4 @@
 {
-    "name": "ebernhardson/php-resque-pool",
-    "type": "library",
-    "description": "php-resque worker pool manager",
-    "keywords": [],
-    "homepage": "http://github.com/ebernhardson/php-resque-pool",
-    "license": "",
-    "authors": [
-        {
-            "name": "Erik Bernhardson",
-            "email": "bernhardsonerik@gmail.com"
-        },
-        {
-            "name": "Nicholas Evans",
-            "email": "nick@ekenosen.net"
-        }
-    ],
     "repositories": [
       {
         "type":"vcs",
