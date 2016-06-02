@@ -28,7 +28,5 @@
     },
     "autoload": {
         "psr-0": { "Resque\\Pool": "lib/" }
-    },
-    "target-dir": "",
-    "minimum-stability": "dev"
+    }
 }
