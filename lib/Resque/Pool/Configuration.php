@@ -52,6 +52,10 @@ class Configuration
      */
     public $logger;
     /**
+     * @param Work Logger
+     */
+    public $workLogger;
+    /**
      * @param integer self::LOG_*
      */
     public $logLevel = self::LOG_NONE;
@@ -90,12 +94,13 @@ class Configuration
     protected $queueConfig;
 
     /**
-     * @param array|string|null $config   Either a configuration array, path to yml
-     *                                    file containing config, or null
-     * @param Logger|null       $logger   If not provided one will be instantiated
-     * @param Platform|null     $platform If not provided one will be instantiated
+     * @param Logger            $workLogger To provide to the worker
+     * @param array|string|null $config     Either a configuration array, path to yml
+     *                                      file containing config, or null
+     * @param Logger|null       $logger     If not provided one will be instantiated
+     * @param Platform|null     $platform   If not provided one will be instantiated
      */
-    public function __construct($config = null, Logger $logger = null, Platform $platform = null)
+    public function __construct(\Psr\Log\LoggerInterface $workLogger, $config = null, Logger $logger = null, Platform $platform = null)
     {
         $this->loadEnvironment();
         $this->logger = $logger ?: new Logger($this->appName);
@@ -109,6 +114,8 @@ class Configuration
         } elseif ($config !== null) {
             throw new \InvalidArgumentException('Unknown $config argument passed');
         }
+
+        $this->workLogger = $workLogger;
     }
 
     public function initialize()
