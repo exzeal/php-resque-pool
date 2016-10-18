@@ -53,10 +53,6 @@ class Cli
                 unlink($pidfile);
             }
         }
-        elseif (!is_dir($piddir = basename($pidfile)))
-        {
-            mkdir($piddir, 0777, true);
-        }
 
         file_put_contents($pidfile, getmypid(), LOCK_EX);
         register_shutdown_function(function() use ($pidfile) {
