@@ -274,7 +274,8 @@ class Pool
             $this->logger->logWorker("Starting worker $worker");
             $this->logger->procline("Starting worker $worker");
             $this->callAfterPrefork($worker);
-            $worker->work($this->config->workerInterval);
+            $interval = isset($this->config->queueConfig()[$queues]['interval']) ? $this->config->queueConfig()[$queues]['interval'] : $this->config->workerInterval;
+            $worker->work($interval);
             $this->platform->_exit(0);
         } else {
             $this->workers[$queues][$pid] = true;
