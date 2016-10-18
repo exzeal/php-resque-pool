@@ -71,7 +71,7 @@ class Cli
 
     public function buildConfiguration(array $options)
     {
-        $config = new Configuration($optoins['workerLogger']);
+        $config = new Configuration($options["workerLogger"], $options['config']);
         if ($options['appname']) {
             $config->appName = $options['appname'];
         }
@@ -89,6 +89,7 @@ class Cli
         } elseif ($options['term-graceful']) {
             $config->termBehavior = 'graceful_worker_shutdown';
         }
+        $config->redisBackend = isset($options['redisBackend']) ? $options['redisBackend'] : "127.0.0.1:6379";
 
         return $config;
     }

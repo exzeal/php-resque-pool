@@ -56,6 +56,10 @@ class Configuration
      */
     public $workLogger;
     /**
+     * @param redisBackend
+     */
+    public $redisBackend;
+    /**
      * @param integer self::LOG_*
      */
     public $logLevel = self::LOG_NONE;
@@ -127,11 +131,10 @@ class Configuration
         if ($this->environment && isset($this->queueConfig[$this->environment])) {
             $this->queueConfig = $this->queueConfig[$this->environment] + $this->queueConfig;
         }
-        if (isset($this->queueConfig['redis_backend'])) {
-            \Resque::setBackend($this->queueConfig['redis_backend']);
-        }
+        \Resque::setBackend($this->redisBackend);
         // filter out the environments
-        $this->queueConfig = array_filter($this->queueConfig, 'is_integer');
+        //$this->queueConfig = array_filter($this->queueConfig, 'is_integer');
+
         $this->logger->log("Configured queues: " . implode(" ", $this->knownQueues()));
     }
 
