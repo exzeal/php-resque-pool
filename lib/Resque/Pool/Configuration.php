@@ -142,7 +142,7 @@ class Configuration
      */
     public function workerCount($queues)
     {
-        return isset($this->queueConfig[$queues]) ? $this->queueConfig[$queues] : 0;
+        return isset($this->queueConfig[$queues]['workerCount']) ? $this->queueConfig[$queues]['workerCount']: 0;
     }
 
     /**
