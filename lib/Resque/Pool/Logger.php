@@ -21,8 +21,12 @@ class Logger
 
     public function procline($string)
     {
-        if (function_exists('setproctitle')) {
-            setproctitle("resque-pool-manager{$this->appName}: $string");
+        if(PHP_OS != "Drawin") {
+            if (function_exists('setproctitle')) {
+                setproctitle("resque-pool-manager{$this->appName}: $string");
+            } elseif (function_exists("cli_set_process_title")) {
+                cli_set_process_title("resque-pool-manager{$this->appName}: $string");
+            }
         }
     }
 
