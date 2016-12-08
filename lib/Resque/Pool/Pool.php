@@ -295,7 +295,9 @@ class Pool
         $class = $this->config->workerClass;
         $worker = new $class($queues);
         $worker->setLogger($this->workLogger);
-
+        $queueConfig = $this->config->queueConfig()[$queues[0]];
+        $debug = isset($queueConfig['debug']) ? $queueConfig['debug'] : false;
+        $worker->setDebug($debug);
         return $worker;
     }
 }
