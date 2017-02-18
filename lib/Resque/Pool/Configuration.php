@@ -109,6 +109,7 @@ class Configuration
         $this->loadEnvironment();
         $this->logger = $logger ?: new Logger($this->appName);
         $this->platform = $platform ?: new Platform;
+        $this->platform->setLogger($this->logger);
 
         if (is_array($config)) {
             $this->queueConfig = $config;
