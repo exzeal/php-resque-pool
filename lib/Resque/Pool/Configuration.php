@@ -135,6 +135,11 @@ class Configuration
         \Resque::setBackend($this->redisBackend);
         // filter out the environments
         //$this->queueConfig = array_filter($this->queueConfig, 'is_integer');
+        if(isset($this->queueConfig['SignalWaitSleepTime']))
+        {
+            $this->sleepTime = $this->queueConfig['SignalWaitSleepTime'];
+            unset($this->queueConfig['SignalWaitleepTime']);
+        }
 
         $this->logger->log("Configured queues: " . implode(" ", $this->knownQueues()));
     }
