@@ -71,7 +71,7 @@ class Cli
 
     public function buildConfiguration(array $options)
     {
-        $config = new Configuration($options['config'], $options['logger']);
+        $config = new Configuration($options["workerLogger"], $options['config']);
         if ($options['appname']) {
             $config->appName = $options['appname'];
         }

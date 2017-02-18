@@ -25,6 +25,11 @@ class Pool
     private $logger;
 
     /**
+     * @param Worker Logger
+     */
+    private $workLogger;
+
+    /**
      * @param [queues => [pid => true]]
      */
     private $workers = array();
@@ -33,6 +38,7 @@ class Pool
     {
         $this->config = $config;
         $this->logger = $config->logger;
+        $this->workLogger = $config->workLogger;
         $this->platform = $config->platform;
     }
 
@@ -288,7 +294,7 @@ class Pool
         $queues = explode(',', $queues);
         $class = $this->config->workerClass;
         $worker = new $class($queues);
-        $worker->setLogger($this->logger);
+        $worker->setLogger($this->workLogger);
         $queueConfig = $this->config->queueConfig()[$queues[0]];
         $debug = isset($queueConfig['debug']) ? $queueConfig['debug'] : false;
         $worker->setDebug($debug);
