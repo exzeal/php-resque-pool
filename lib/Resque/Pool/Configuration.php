@@ -52,10 +52,6 @@ class Configuration
      */
     public $logger;
     /**
-     * @param Work Logger
-     */
-    public $workLogger;
-    /**
      * @param redisBackend
      */
     public $redisBackend;
@@ -104,7 +100,7 @@ class Configuration
      * @param Logger|null       $logger     If not provided one will be instantiated
      * @param Platform|null     $platform   If not provided one will be instantiated
      */
-    public function __construct(\Psr\Log\LoggerInterface $workLogger, $config = null, Logger $logger = null, Platform $platform = null)
+    public function __construct($config = null, \Psr\Log\LoggerInterface $logger = null, Platform $platform = null)
     {
         $this->loadEnvironment();
         $this->logger = $logger ?: new Logger($this->appName);
@@ -118,8 +114,6 @@ class Configuration
         } elseif ($config !== null) {
             throw new \InvalidArgumentException('Unknown $config argument passed');
         }
-
-        $this->workLogger = $workLogger;
     }
 
     public function initialize()
