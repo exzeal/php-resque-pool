@@ -1,24 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "db1c3201887094cde66dbd6a9ec1f77d",
-    "content-hash": "4ee90a323f2d26db7015793ae914b48b",
+    "content-hash": "f3d0fe8cb1245a459bf1c7699da85f17",
     "packages": [
         {
             "name": "chrisboulton/php-resque",
-            "version": "dev-magnolia-factory",
+            "version": "dev-exzeal",
             "source": {
                 "type": "git",
-                "url": "https://github.com/magnolia-factory/php-resque.git",
-                "reference": "e2a6e344a9a5a61e87354dba9ec96175752397e6"
+                "url": "https://github.com/exzeal/php-resque.git",
+                "reference": "948d03e3bba858a0b2b8ceb68229d12dab30e531"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/magnolia-factory/php-resque/zipball/e2a6e344a9a5a61e87354dba9ec96175752397e6",
-                "reference": "e2a6e344a9a5a61e87354dba9ec96175752397e6",
+                "url": "https://api.github.com/repos/exzeal/php-resque/zipball/948d03e3bba858a0b2b8ceb68229d12dab30e531",
+                "reference": "948d03e3bba858a0b2b8ceb68229d12dab30e531",
                 "shasum": ""
             },
             "require": {
@@ -61,22 +60,23 @@
                 "resque"
             ],
             "support": {
-                "source": "https://github.com/magnolia-factory/php-resque/tree/magnolia-factory"
+                "source": "https://github.com/exzeal/php-resque/tree/exzeal",
+                "issues": "https://github.com/exzeal/php-resque/issues"
             },
-            "time": "2016-06-01 09:57:55"
+            "time": "2017-02-18T17:23:58+00:00"
         },
         {
             "name": "colinmollenhour/credis",
-            "version": "1.7",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/credis.git",
-                "reference": "74b2b703da5c58dc07fb97e8954bc63280b469bf"
+                "reference": "bd1da4698ab1918477f9e71e5ff0062b9a345008"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/74b2b703da5c58dc07fb97e8954bc63280b469bf",
-                "reference": "74b2b703da5c58dc07fb97e8954bc63280b469bf",
+                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/bd1da4698ab1918477f9e71e5ff0062b9a345008",
+                "reference": "bd1da4698ab1918477f9e71e5ff0062b9a345008",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,8 @@
                 "classmap": [
                     "Client.php",
                     "Cluster.php",
-                    "Sentinel.php"
+                    "Sentinel.php",
+                    "Module.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -102,7 +103,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2016-03-24 15:50:52"
+            "time": "2019-11-26T18:09:45+00:00"
         },
         {
             "name": "psr/log",
@@ -140,7 +141,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -182,7 +183,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2013-05-10 00:09:46"
+            "time": "2013-05-10T00:09:46+00:00"
         }
     ],
     "packages-dev": [],
